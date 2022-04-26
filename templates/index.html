@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+{% block content %}
+{% load static %}
+  <div id="pageintro" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <article>
+      <p>Welcome To</p>
+      <h3 class="heading">AvodhaShop</h3>
+      <p>The place to find the food of your choice he place to find the food of your choicehe place to find the food of your choic he place to find the food of your choic</p>
+      {% if not user.is_authenticated %}
+      <footer><a class="btn btn-success" href="{% url 'accounts:register' %}">Register Here</a></footer>
+   {% endif %}/
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <section id="introblocks">
+      <ul class="nospace group">
+        {% for i in page_obj.object_list %}
+        <li class="one_third">
+          <figure><a class="imgover" href="#">  <a href="{{i.get_url}}"><img src="{{i.img.url}}" style="width:400px;height:300px;" alt="">
+            <figcaption>
+
+              <h6 class="heading">{{i.name}}</h6>
+              </a>
+              <p>{{i.desc}}</p>
+            </figcaption>
+          </figure>
+        </li>
+
+        {% endfor %}
+       <!-- *********************************************
+        <li class="one_third">
+          <figure><a class="imgover" href="#"><img src="{% static 'samp.jpg' %}" alt=""></a>
+            <figcaption>
+              <h6 class="heading">Volutpat sed quis</h6>
+              <p>Vel nisi semper adipiscing maecenas sodales elit cras porttitor diam aliquam turpis quisque rhoncus tincidunt.</p>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="one_third">
+          <figure><a class="imgover" href="#"><img src="{% static 'samp.jpg' %}" alt=""></a>
+            <figcaption>
+              <h6 class="heading">Leo phasellus sit</h6>
+              <p>Arcu ut auctor nunc ac mi vivamus aliquam maecenas in lorem vel tellus porttitor placerat quisque tellus nulla.</p>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="one_third">
+          <figure><a class="imgover" href="#"><img src="{% static 'samp.jpg' %}" alt=""></a>
+            <figcaption>
+              <h6 class="heading">Amet lorem odio</h6>
+              <p>Facilisis et mattis id consectetuer vel nunc donec sagittis purus sit amet est pellentesque elit dolor mattis.</p>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="one_third">
+          <figure><a class="imgover" href="#"><img src="{% static 'samp.jpg' %}" alt=""></a>
+            <figcaption>
+              <h6 class="heading">Semper aliquam duis</h6>
+              <p>Ac lobortis sed cursus at magna vivamus laoreet orci vel tortor in nisi in porttitor vulputate arcu integer.</p>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="one_third">
+          <figure><a class="imgover" href="#"><img src="{% static 'samp.jpg' %}" alt=""></a>
+            <figcaption>
+              <h6 class="heading">Tempus mauris morbi</h6>
+              <p>Pretium curabitur lacinia aenean eu lectus maecenas at urna morbi porta est a mi duis felis nunc lobortis ut.</p>
+            </figcaption>
+          </figure>
+        </li>
+        -->
+      </ul>
+    </section>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+
+    <div class="clear"></div>
+  </main>
+
+<center>
+  {% for i in page_obj.paginator.page_range %}
+    <a class="btn btn-success" href="?page={{i}}">{{i}} </a>
+    {% endfor %}
+
+</center>
+  {% if user.is_authenticated %}
+<center>
+  <strong>logged in as {{user.username}}</strong>
+</center>
+  {% endif %}
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!--<div class="wrapper row2">
+  <section class="hoc container clear"> -->
+    <!-- ################################################################################################ -->
+<!-- ******************************************************************  
+-->
+<!-- JAVASCRIPTS -->
+    <!--
+<script src="{% static 'shop_index/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'shop_index/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'shop_index/scripts/jquery.mobilemenu.js' %}"></script>
+-->
+
+    {% endblock %}
+</body>
+</html>

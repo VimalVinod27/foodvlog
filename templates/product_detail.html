@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>AvodhaFood</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'shop_product/lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+        <link href="{% static 'shop_product/lib/animate/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'shop_product/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'shop_product/css/style.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Top Bar Start -->
+
+        <!-- Carousel End -->
+        
+
+        <!-- About Start -->
+        <div class="about">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-img">
+                            <img src="{{prodt.img.url}}" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="section-header text-left">
+                            <p>Food Details</p>
+                            <h2 style="color:blue;">{{prodt.name}}</h2>
+                        </div>
+                        <div class="about-content">
+                            <p>
+                             {{prodt.desc}}
+                            </p>
+                            <ul>
+                                <li><i class="far fa-check-circle"></i>Price : ${{prodt.price}}</li>
+                                <li><i class="far fa-check-circle"></i>Stock : {{prodt.stock}}</li>
+                            </ul>
+                            {% if user.is_authenticated %}
+                            {% if stk %}
+                            <a class="btn btn-custom" href="{% url 'cart:add_cart' prodt.id %}">Add to cart</a>
+                            {% else %}
+                            <h3 style="color:red;">No stock</h3>
+
+                            {% endif %}
+{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'shop_product/lib/easing/easing.min.js' %}"></script>
+        <script src="{% static 'shop_product/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'shop_product/lib/waypoints/waypoints.min.js' %}"></script>
+        <script src="{% static 'shop_product/lib/counterup/counterup.min.js' %}"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="{% static 'shop_product/js/main.js' %}"></script>
+    {% endblock %}
+    </body>
+</html>
