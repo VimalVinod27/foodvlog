@@ -46,14 +46,14 @@ def shop_detail(request,categ_slug,prod_slug):
 
     return render(request,'product_detail.html',{'prodt':prodt,'categ':categ,'stk':stk})
 
-def search(request):
-    key=request.GET.get('srch')
-    if key is not None:
-        obj = Product.objects.filter(Q(name__icontains=key) | Q(desc__icontains=key))
-        print(key)
-        return redirect(shopindex, kwargs={'search': obj})
-    else:
-        return render(request,'nomatch.html')
+#def search(request):
+ #   key=request.GET.get('srch')
+  #  if key is not None:
+   #     obj = Product.objects.filter(Q(name__icontains=key) | Q(desc__icontains=key))
+    #    print(key)
+     #   return redirect(shopindex, kwargs={'search': obj})
+    #else:
+     #   return render(request,'nomatch.html')
 
 
 
